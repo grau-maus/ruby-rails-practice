@@ -45,6 +45,13 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+
+        redirect_to articles_path
+    end
+
     private
         def article_params
             # you can control which parameters in a model are updated by passing it in the 'permit' method
